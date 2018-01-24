@@ -20,38 +20,29 @@ window.onload = function(){
                     for (var i in data){
                         var namePoke = data[i].name.toLowerCase();
                         if (search === namePoke || search === i){
-                           return data[i]
+                            return data[i]
                         }
                     }
                 }
-
-                function linksImg(imgPoke, end){
-                    return imgPoke.setAttribute('src', 'https://img.pokemondb.net/artwork/' + isPokeExist().name.toLowerCase() + end);
-                }
-
-                function statsPoke(endName){
-                    return stats.innerHTML = isPokeExist().name + endName + '<br>' + isPokeExist().type;
-                }
-
                 if (typeof isPokeExist() !== 'undefined' && search != 29 && search != 32 && search !== 'nidoran') {
-                    linksImg(imgPoke, '.jpg');
-                    statsPoke('');
+                    imgPoke.setAttribute('src', 'https://img.pokemondb.net/artwork/' + isPokeExist().name.toLowerCase() + '.jpg');
+                    stats.innerHTML = isPokeExist().name + '<br>' + isPokeExist().type;
                 }
 
                 else if (typeof isPokeExist() !== 'undefined' && search === 'nidoran'){
-                    linksImg(imgPoke, '-m.jpg');
-                    linksImg(imgPoke2, '-f.jpg');
-                    statsPoke('');
+                    imgPoke.setAttribute('src', 'https://img.pokemondb.net/artwork/' + isPokeExist().name.toLowerCase() + '-m.jpg');
+                    imgPoke2.setAttribute('src', 'https://img.pokemondb.net/artwork/' + isPokeExist().name.toLowerCase() + '-f.jpg');
+                    stats.innerHTML = isPokeExist().name + '<br>' + isPokeExist().type;
                 }
 
                 else if (typeof isPokeExist() !== 'undefined' && search == 29){
                     imgPoke2.setAttribute('src', 'https://img.pokemondb.net/artwork/' + isPokeExist().name.toLowerCase() + '-f.jpg');
-                    statsPoke('&#9792;');
+                    stats.innerHTML = isPokeExist().name + '&#9792;<br>' + isPokeExist().type;
                 }
 
                 else if (typeof isPokeExist() !== 'undefined' && search == 32){
                     imgPoke.setAttribute('src', 'https://img.pokemondb.net/artwork/' + isPokeExist().name.toLowerCase() + '-m.jpg');
-                    statsPoke('&#9794;');
+                    stats.innerHTML = isPokeExist().name + '&#9794;<br>' + isPokeExist().type;
                 }
 
                 else {
