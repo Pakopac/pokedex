@@ -5,37 +5,57 @@ window.onload = function(){
         var imgPoke = document.querySelector('#imgPoke');
         var imgPoke2 = document.querySelector('#imgPoke2');
         var stats = document.querySelector('#stats');
+        var blockError = '' ;
+
+        imgPoke.removeAttribute('src');
+        imgPoke2.removeAttribute('src');
+        stats.innerHTML = '';
 
         $.ajax({
-            url: 'list.json',
+            url: 'pokemons.json',
             type: 'get',
             dataType: 'json',
             success: function (data) {
-                for (var i in data) {
-                    namePoke = data[i].name.toLowerCase();
-                    if (search === namePoke || search === i){
-                        if(search === "nidoran"){
-                            imgPoke.setAttribute('src', 'https://img.pokemondb.net/artwork/'+ namePoke +'-m.jpg');
-                            imgPoke2.setAttribute('src', 'https://img.pokemondb.net/artwork/'+ namePoke +'-f.jpg');
-                            imgPoke2.style.display = 'inline'
+                function isPokeExist() {
+                    for (var i in data){
+                        var namePoke = data[i].name.toLowerCase();
+                        if (search === namePoke || search === i){
+                           return data[i]
                         }
-                        else if(search == 32){
-                            imgPoke.setAttribute('src', 'https://img.pokemondb.net/artwork/'+ namePoke +'-m.jpg');
-                            data[i].name = 'nidoran&#9794;';
-                            imgPoke2.style.display = 'none'
-                        }
-                        else if(search == 29){
-                            imgPoke.setAttribute('src', 'https://img.pokemondb.net/artwork/'+ namePoke +'-f.jpg');
-                            data[i].name = 'nidoran&#9792;';
-                            imgPoke2.style.display = 'none'
-                        }
-                        else {
-                            imgPoke.setAttribute('src', 'https://img.pokemondb.net/artwork/' + namePoke + '.jpg');
-                            imgPoke2.style.display = 'none'
-                        }
-                        stats.innerHTML = data[i].name + '<br>' + data[i].type
                     }
                 }
+                if (typeof isPokeExist() !== 'undefined' && search != 29 && search != 32 && search !== 'nidoran') {
+                    imgPoke.setAttribute('src', 'https://img.pokemondb.net/artwork/' + isPokeExist().name.toLowerCase() + '.jpg');
+                    stats.innerHTML = isPokeExist().name + '<br>' + isPokeExist().type;
+                }
+
+                else if (typeof isPokeExist() !== 'undefined' && search === 'nidoran'){
+                    imgPoke.setAttribute('src', 'https://img.pokemondb.net/artwork/' + isPokeExist().name.toLowerCase() + '-m.jpg');
+                    imgPoke2.setAttribute('src', 'https://img.pokemondb.net/artwork/' + isPokeExist().name.toLowerCase() + '-f.jpg');
+                    stats.innerHTML = isPokeExist().name + '<br>' + isPokeExist().type;
+                }
+
+                else if (typeof isPokeExist() !== 'undefined' && search == 29){
+                    imgPoke2.setAttribute('src', 'https://img.pokemondb.net/artwork/' + isPokeExist().name.toLowerCase() + '-f.jpg');
+                    stats.innerHTML = isPokeExist().name + '&#9792;<br>' + isPokeExist().type;
+                }
+
+                else if (typeof isPokeExist() !== 'undefined' && search == 32){
+                    imgPoke.setAttribute('src', 'https://img.pokemondb.net/artwork/' + isPokeExist().name.toLowerCase() + '-m.jpg');
+                    stats.innerHTML = isPokeExist().name + '&#9794;<br>' + isPokeExist().type;
+                }
+
+                else {
+                    if (isNaN(search)) {
+                        blockError = search + ' not found'
+                    }
+
+                    if (!isNaN(search)) {
+                        blockError = 'Pokémon number ' + search + ' not found'
+                    }
+                }
+
+                document.querySelector('#error').innerHTML = blockError;
             }
         });
         return false
