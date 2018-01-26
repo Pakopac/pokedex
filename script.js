@@ -4,12 +4,12 @@ window.onload = function(){
         var search = document.querySelector('input[name="search"]').value;
         var imgPoke = document.querySelector('#imgPoke');
         var imgPoke2 = document.querySelector('#imgPoke2');
-        var stats = document.querySelector('#stats');
+        var blockName = document.querySelector('#name');
+        var blockType = document.querySelector('#type');
         var blockError = '' ;
 
         imgPoke.removeAttribute('src');
         imgPoke2.removeAttribute('src');
-        stats.innerHTML = '';
 
         $.ajax({
             url: 'pokemons.json',
@@ -26,32 +26,49 @@ window.onload = function(){
                 }
                 if (search.length !== 0) {
                     function linksImg(imgPoke, end) {
-                        return imgPoke.setAttribute('src', 'https://img.pokemondb.net/artwork/' + isPokeExist().name.toLowerCase() + end);
+                        return imgPoke.setAttribute('src', 'http://www.pokestadium.com/sprites/xy/' + isPokeExist().name.toLowerCase() + end);
                     }
 
-                    function statsPoke(endName) {
-                        return stats.innerHTML = isPokeExist().name + endName + '<br>' + isPokeExist().type;
+                    function sizeImg(img, width, height){
+                        return img.setAttribute('width', width + 'height' , height)
+                    }
+
+                    function name(endName) {
+                        var showName = isPokeExist().name + endName;
+                        return blockName.innerHTML = 'Name: ' + showName;
+                    }
+
+                    function type(){
+                        var showType = isPokeExist().type;
+                        return blockType.innerHTML = 'Type: ' + showType;
                     }
 
                     if (typeof isPokeExist() !== 'undefined' && search != 29 && search != 32 && search !== 'nidoran') {
-                        linksImg(imgPoke, '.jpg');
-                        statsPoke('');
+                        linksImg(imgPoke, '.gif');
+                        sizeImg(imgPoke, '100px', '100px');
+                        name(' ');
+                        type();
                     }
 
                     else if (typeof isPokeExist() !== 'undefined' && search === 'nidoran') {
-                        linksImg(imgPoke, '-m.jpg');
-                        linksImg(imgPoke2, '-f.jpg');
-                        statsPoke('');
+                        linksImg(imgPoke, 'm.gif');
+                        linksImg(imgPoke2, 'f.gif');
+                        sizeImg(imgPoke, '70px', '70px');
+                        sizeImg(imgPoke2, '70px', '70px');
+                        name(' ');
+                        type();
                     }
 
                     else if (typeof isPokeExist() !== 'undefined' && search == 29) {
-                        imgPoke2.setAttribute('src', 'https://img.pokemondb.net/artwork/' + isPokeExist().name.toLowerCase() + '-f.jpg');
-                        statsPoke('&#9792;');
+                        linksImg(imgPoke, 'f.gif');
+                        name('&#9792;');
+                        type()
                     }
 
                     else if (typeof isPokeExist() !== 'undefined' && search == 32) {
-                        imgPoke.setAttribute('src', 'https://img.pokemondb.net/artwork/' + isPokeExist().name.toLowerCase() + '-m.jpg');
-                        statsPoke('&#9794;');
+                        linksImg(imgPoke, 'm.gif');
+                        name('&#9794;');
+                        type()
                     }
 
                     else {
