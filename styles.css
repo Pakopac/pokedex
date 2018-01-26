@@ -111,8 +111,13 @@
     font-weight: bold;
 }
 #imgPoke{
-    margin-left: 84px;
-    margin-top: 34px;
+    display: none;
+    margin-left: 27%;
+    margin-top: 70px;
+    width: 100%;
+    height: 100%;
+    max-width: 150px;
+    max-height: 120px;
 }
 .leftEye{
     width: 84px;
@@ -406,7 +411,7 @@
 @media(max-width: 769px){
 .startArmLeft, .hideArm1Left, .midArmLeft, .hideArm2Left, .endArmLeft, .circleInArmLeft,
 .startArmRight, .hideArm1Right, .midArmRight, .hideArm2Right, .endArmRight, .circleInArmRight,
-.footLeft, .footRight, form, input,#name, #type, #imgPoke, #imgPoke2{
+.footLeft, .footRight, form, input,#name, #type, #imgPoke{
     display: none;
 }
 .pokedex{
