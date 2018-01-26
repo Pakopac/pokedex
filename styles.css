@@ -360,3 +360,27 @@
     border: 5px solid #581c1c;
     transform: rotate(-20deg);
 }
+.footLeft{
+    position: fixed;
+    z-index: 0;
+    width: 50px;
+    height: 100px;
+    border-radius: 50px;
+    background: #aa2322;
+    margin-left: 474px;
+    margin-top: 538px;
+    transform: rotate(20deg);
+    border: 5px solid #581c1c;
+}
+.footRight{
+    position: fixed;
+    z-index: 0;
+    width: 50px;
+    height: 100px;
+    border-radius: 50px;
+    background: #aa2322;
+    margin-left: 600px;
+    margin-top: 538px;
+    transform: rotate(-20deg);
+    border: 5px solid #581c1c;
+}
