@@ -86,20 +86,20 @@
     position: fixed;
     z-index: 3;
     width: 270px;
-    height: 190px;
+    height: 200px;
     background: rgba(48, 201, 255, 0.77);
     margin-left: 430px;
     margin-top: 350px;
     border-radius: 30px;
 }
 #name{
-    margin-top: 10px;
+    margin-top: 40px;
     margin-left: 20px;
     float: left;
     font-weight: bold;
 }
 #type{
-    margin-top: 10px;
+    margin-top: 40px;
     margin-right: 20px;
     float: right;
     font-weight: bold;
@@ -107,4 +107,70 @@
 #imgPoke{
     margin-left: 84px;
     margin-top: 34px;
+}
+.leftEye{
+    width: 84px;
+    height: 111px;
+    border-radius: 50px;
+    background: white;
+    margin-left: 453px;
+    margin-top: 268px;
+    position: fixed;
+    z-index: 3;
+    transform: rotate(-19deg);
+    border: 5px solid black;
+}
+.inLeftEye{
+    width: 49px;
+    height: 73px;
+    border-radius: 50px;
+    background: #3883ff;
+    margin-left: 476px;
+    margin-top: 292px;
+    position: fixed;
+    z-index: 4;
+    transform: rotate(-19deg);
+}
+.rightEye{
+    width: 84px;
+    height: 111px;
+    border-radius: 50px;
+    background: white;
+    margin-left: 589px;
+    margin-top: 268px;
+    position: fixed;
+    z-index: 3;
+    transform: rotate(19deg);
+    border: 5px solid black;
+}
+.inRightEye{
+    width: 49px;
+    height: 73px;
+    border-radius: 50px;
+    background: #3883ff;
+    margin-left: 613px;
+    margin-top: 292px;
+    position: fixed;
+    z-index: 4;
+    transform: rotate(19deg);
+}
+.borderInEyeLeft{
+    z-index: 3;
+    position: fixed;
+    width: 85px;
+    height: 5px;
+    background: black;
+    margin-left: 457px;
+    margin-top: 325px;
+    transform: rotate(-20deg);
+}
+.borderInEyeRight{
+    z-index: 3;
+    position: fixed;
+    width: 89px;
+    height: 5px;
+    background: black;
+    margin-left: 590px;
+    margin-top: 325px;
+    transform: rotate(20deg);
 }
