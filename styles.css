@@ -136,6 +136,9 @@
     position: fixed;
     z-index: 5;
     transform: rotate(-19deg);
+    animation: blink 5s;
+    animation-delay: 5s;
+    animation-iteration-count: infinite;
 }
 .rightEye{
     width: 84px;
@@ -159,6 +162,9 @@
     position: fixed;
     z-index: 5;
     transform: rotate(19deg);
+    animation: blink 5s;
+    animation-delay: 5s;
+    animation-iteration-count: infinite;
 }
 .borderInEyeLeft{
     z-index: 4;
@@ -389,6 +395,13 @@
     margin-top: 538px;
     transform: rotate(-20deg);
     border: 5px solid #581c1c;
+}
+@keyframes blink {
+    0% { opacity: 0}
+    3% {opacity: 0}
+    4%{opacity: 1}
+    99%{opacity: 1}
+    100%{opacity: 0}
 }
 @media(max-width: 769px){
 .startArmLeft, .hideArm1Left, .midArmLeft, .hideArm2Left, .endArmLeft, .circleInArmLeft,
