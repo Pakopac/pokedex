@@ -1,5 +1,9 @@
 #error{
-    color: red;
+    color: #7c0b00;
+    margin-left: 52px;
+    margin-right: 36px;
+    margin-top: 41px;
+    font-size: 23px;
     font-weight: bold;
 }
 .background{

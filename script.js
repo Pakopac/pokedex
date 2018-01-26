@@ -5,7 +5,9 @@ window.onload = function(){
         var imgPoke = document.querySelector('#imgPoke');
         var imgPoke2 = document.querySelector('#imgPoke2');
         var blockName = document.querySelector('#name');
+        blockName.innerHTML = '';
         var blockType = document.querySelector('#type');
+        blockType.innerHTML = '';
         var blockError = '' ;
 
         imgPoke.removeAttribute('src');
