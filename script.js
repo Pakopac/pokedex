@@ -6,7 +6,7 @@ window.onload = function(){
         success: function (data) {
 
             document.querySelector('#form').onsubmit = function () {
-                var search = document.querySelector('input[name="search"]').value;
+                var search = document.querySelector('input[name="search"]').value.toLowerCase();
                 var imgPoke = document.querySelector('#imgPoke');
                 imgPoke.style.display = 'none';
                 var blockName = document.querySelector('#name');
