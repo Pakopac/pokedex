@@ -411,9 +411,12 @@
 @media(max-width: 769px){
 .startArmLeft, .hideArm1Left, .midArmLeft, .hideArm2Left, .endArmLeft, .circleInArmLeft,
 .startArmRight, .hideArm1Right, .midArmRight, .hideArm2Right, .endArmRight, .circleInArmRight,
-.footLeft, .footRight, form, input,#name, #type, #imgPoke{
+.footLeft, .footRight, form, input,#name, #type{
     display: none;
 }
+    #imgPoke{
+        visibility: hidden;
+    }
 .pokedex{
     margin-left: -291px;
     margin-top: 30px;
