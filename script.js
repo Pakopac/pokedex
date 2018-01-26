@@ -1,23 +1,23 @@
 window.onload = function(){
+    $.ajax({
+        url: 'pokemons.json',
+        type: 'get',
+        dataType: 'json',
+        success: function (data) {
 
-    document.querySelector('#form').onsubmit = function(){
-        var search = document.querySelector('input[name="search"]').value;
-        var imgPoke = document.querySelector('#imgPoke');
-        var imgPoke2 = document.querySelector('#imgPoke2');
-        var blockName = document.querySelector('#name');
-        blockName.innerHTML = '';
-        var blockType = document.querySelector('#type');
-        blockType.innerHTML = '';
-        var blockError = '' ;
+            document.querySelector('#form').onsubmit = function () {
+                var search = document.querySelector('input[name="search"]').value;
+                var imgPoke = document.querySelector('#imgPoke');
+                var imgPoke2 = document.querySelector('#imgPoke2');
+                var blockName = document.querySelector('#name');
+                blockName.innerHTML = '';
+                var blockType = document.querySelector('#type');
+                blockType.innerHTML = '';
+                var blockError = '';
 
-        imgPoke.removeAttribute('src');
-        imgPoke2.removeAttribute('src');
+                imgPoke.removeAttribute('src');
+                imgPoke2.removeAttribute('src');
 
-        $.ajax({
-            url: 'pokemons.json',
-            type: 'get',
-            dataType: 'json',
-            success: function (data) {
                 function isPokeExist() {
                     for (var i in data) {
                         var namePoke = data[i].name.toLowerCase();
@@ -26,13 +26,14 @@ window.onload = function(){
                         }
                     }
                 }
+
                 if (search.length !== 0) {
                     function linksImg(imgPoke, end) {
                         return imgPoke.setAttribute('src', 'http://www.pokestadium.com/sprites/xy/' + isPokeExist().name.toLowerCase() + end);
                     }
 
-                    function sizeImg(img, width, height){
-                        return img.setAttribute('width', width + 'height' , height)
+                    function sizeImg(img, width, height) {
+                        return img.setAttribute('width', width + 'height', height)
                     }
 
                     function name(endName) {
@@ -40,7 +41,7 @@ window.onload = function(){
                         return blockName.innerHTML = 'Name: ' + showName;
                     }
 
-                    function type(){
+                    function type() {
                         var showType = isPokeExist().type;
                         return blockType.innerHTML = 'Type: ' + showType;
                     }
@@ -85,8 +86,8 @@ window.onload = function(){
 
                     document.querySelector('#error').innerHTML = blockError;
                 }
-            }
+                return false
+            };
+        }
         });
-        return false
     };
-};
