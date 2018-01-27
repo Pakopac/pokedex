@@ -452,7 +452,7 @@ body{
     99%{opacity: 1}
     100%{opacity: 0}
 }
-@media(max-width: 769px){
+@media(max-width: 769px), screen and (orientation: portrait){
 
 .startArmLeft, .hideArm1Left, .midArmLeft, .hideArm2Left, .endArmLeft, .circleInArmLeft,
 .startArmRight, .hideArm1Right, .midArmRight, .hideArm2Right, .endArmRight, .circleInArmRight,

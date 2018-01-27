@@ -24,7 +24,7 @@ window.onload = function(){
                     }
 
                     function name(showName) {
-                        return blockName.innerHTML = showName;
+                        return blockName.innerHTML = 'Name: ' + showName;
                     }
 
                     function type() {
