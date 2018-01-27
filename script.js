@@ -1,4 +1,9 @@
 window.onload = function(){
+
+    var imgPoke = document.querySelector('#imgPoke');
+    var blockName = document.querySelector('#name');
+    var blockType = document.querySelector('#type');
+
     $.ajax({
         url: 'pokemons.json',
         type: 'get',
@@ -7,32 +12,19 @@ window.onload = function(){
 
             document.querySelector('#form').onsubmit = function () {
                 var search = document.querySelector('input[name="search"]').value.toLowerCase();
-                var imgPoke = document.querySelector('#imgPoke');
                 imgPoke.style.display = 'none';
-                var blockName = document.querySelector('#name');
                 blockName.innerHTML = '';
-                var blockType = document.querySelector('#type');
                 blockType.innerHTML = '';
                 var blockError = '';
 
-                function isPokeExist() {
-                    for (var i in data) {
-                        var namePoke = data[i].name.toLowerCase();
-                        if (search === namePoke || search === i) {
-                            return data[i]
-                        }
-                    }
-                }
-
                 if (search.length !== 0) {
-                    function linksImg(imgPoke, end) {
+                    function linksImg(name) {
                         imgPoke.style.display = 'block';
-                        return imgPoke.setAttribute('src', 'http://www.pokestadium.com/sprites/xy/' + isPokeExist().name.toLowerCase() + end);
+                        return imgPoke.setAttribute('src', 'http://www.pokestadium.com/sprites/xy/' + name + '.gif');
                     }
 
-                    function name(endName) {
-                        var showName = isPokeExist().name + endName;
-                        return blockName.innerHTML = 'Name: ' + showName;
+                    function name(showName) {
+                        return blockName.innerHTML = showName;
                     }
 
                     function type() {
@@ -40,32 +32,45 @@ window.onload = function(){
                         return blockType.innerHTML = 'Type: ' + showType;
                     }
 
-                    if (typeof isPokeExist() !== 'undefined' && search != 29
-                        && search != 32 && search !== 'nidoran') {
-                        linksImg(imgPoke, '.gif');
-                        name(' ');
+                    function isPokeExist() {
+                        for (var i in data) {
+                            var namePoke = data[i].name.toLowerCase();
+                            if (search === namePoke || search === i) {
+                                return data[i]
+                            }
+                        }
+                    }
+
+                    if (typeof isPokeExist() !== 'undefined' && search == 32 ||
+                        typeof isPokeExist() !== 'undefined' && search === 'nidoran-m') {
+                        linksImg('nidoranm');
+                        name('Nidoran&#9794');
                         type();
                     }
 
-                    else if (typeof isPokeExist() !== 'undefined' && search === 'nidoran' ||
-                        typeof isPokeExist() !== 'undefined' && search == 32) {
-                        linksImg(imgPoke, 'm.gif');
-                        name('&#9794');
+                    else if (typeof isPokeExist() !== 'undefined' && search == 29||
+                        typeof isPokeExist() !== 'undefined' && search === 'nidoran-f') {
+                        linksImg('nidoranf');
+                        name('Nidoran&#9792');
                         type();
                     }
 
-                    else if (typeof isPokeExist() !== 'undefined' && search == 29) {
-                        linksImg(imgPoke, 'f.gif');
-                        name('&#9792;');
-                        type()
+                    else if (typeof isPokeExist() !== 'undefined') {
+                        linksImg(isPokeExist().name.toLowerCase());
+                        name(isPokeExist().name);
+                        type();
                     }
 
                     else {
-                        if (isNaN(search)) {
+                        if (search === 'nidoran'){
+                            blockError = 'Please search nidran-m or nidoran-f'
+                        }
+
+                        if (isNaN(search) && search !== 'nidoran') {
                             blockError = search + ' not found'
                         }
 
-                        if (!isNaN(search)) {
+                        if (!isNaN(search) && search !== 'nidoran') {
                             blockError = 'Pokémon number ' + search + ' not found'
                         }
                     }
