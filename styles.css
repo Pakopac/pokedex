@@ -453,12 +453,13 @@ body{
     100%{opacity: 0}
 }
 @media(max-width: 769px){
+
 .startArmLeft, .hideArm1Left, .midArmLeft, .hideArm2Left, .endArmLeft, .circleInArmLeft,
 .startArmRight, .hideArm1Right, .midArmRight, .hideArm2Right, .endArmRight, .circleInArmRight,
-.footLeft, .footRight, form, input,#name, #type{
+.footLeft, .footRight, form, input,#name, #type, #error{
     display: none;
 }
-    #imgPoke{
+    #imgPoke, #error{
         visibility: hidden;
     }
 .pokedex{
