@@ -5,6 +5,7 @@
 body{
     background: #236475;
 }
+
 #error{
     color: #7c0b00;
     margin-left: 52px;
@@ -13,9 +14,12 @@ body{
     font-size: 23px;
     font-weight: bold;
 }
+
 .sleep{
     display: none;
 }
+
+/* Form */
 #form{
     margin-left: 384px;
     position: fixed;
@@ -53,10 +57,14 @@ body{
     color: yellow;
     text-shadow: -2px 0 blue, 0 2px blue, 2px 0 blue, 0 -2px blue;
 }
+/* */
+
 .pokedex{
     margin-left: -50px;
 }
-.background{
+
+/* Pokedex Background */
+.pokedexBackground{
     position: fixed;
     z-index: 3;
     margin-left: 387px;
@@ -132,6 +140,9 @@ body{
     margin-top: 70px;
     transform: rotate(62deg);
 }
+/* */
+
+/* screen */
 .screen{
     position: fixed;
     z-index: 4;
@@ -163,6 +174,9 @@ body{
     max-width: 150px;
     max-height: 120px;
 }
+/* */
+
+/* Eyes */
 .leftEye{
     width: 84px;
     height: 111px;
@@ -215,7 +229,7 @@ body{
     animation-delay: 5s;
     animation-iteration-count: infinite;
 }
-.borderInEyeLeft{
+.borderInLeftEye{
     z-index: 4;
     position: fixed;
     width: 85px;
@@ -225,7 +239,7 @@ body{
     margin-top: 277px;
     transform: rotate(-20deg);
 }
-.borderInEyeRight{
+.borderInRightEye{
     z-index: 4;
     position: fixed;
     width: 89px;
@@ -245,6 +259,17 @@ body{
     margin-top: 242px;
     border-radius: 50px;
 }
+
+@keyframes blink {
+    0% { opacity: 0}
+    3% {opacity: 0}
+    4%{opacity: 1}
+    99%{opacity: 1}
+    100%{opacity: 0}
+}
+/* */
+
+/* Circles*/
 .bigCircleLeft{
     position: fixed;
     z-index: 3;
@@ -285,6 +310,9 @@ body{
     background: black;
     border-radius: 50px;
 }
+/* */
+
+/* Left Arm */
 .startArmLeft{
     position: fixed;
     background: #aa2322;
@@ -353,6 +381,9 @@ body{
     border: 5px solid #581c1c;
     transform: rotate(20deg);
 }
+/* */
+
+/* Right Arm */
 .startArmRight{
     position: fixed;
     background: #aa2322;
@@ -421,6 +452,9 @@ body{
     border: 5px solid #581c1c;
     transform: rotate(-20deg);
 }
+/* */
+
+/* feet */
 .footLeft{
     position: fixed;
     z-index: 0;
@@ -445,31 +479,23 @@ body{
     transform: rotate(-20deg);
     border: 5px solid #581c1c;
 }
-@keyframes blink {
-    0% { opacity: 0}
-    3% {opacity: 0}
-    4%{opacity: 1}
-    99%{opacity: 1}
-    100%{opacity: 0}
-}
+/* */
+
+/* Pokedex Close */
 @media(max-width: 769px), screen and (orientation: portrait){
 
-.startArmLeft, .hideArm1Left, .midArmLeft, .hideArm2Left, .endArmLeft, .circleInArmLeft,
-.startArmRight, .hideArm1Right, .midArmRight, .hideArm2Right, .endArmRight, .circleInArmRight,
-.footLeft, .footRight, form, input,#name, #type, #error{
-    display: none;
-}
-    #imgPoke, #error{
+    .startArmLeft, .hideArm1Left, .midArmLeft, .hideArm2Left, .endArmLeft, .circleInArmLeft,
+    .startArmRight, .hideArm1Right, .midArmRight, .hideArm2Right, .endArmRight, .circleInArmRight,
+    .footLeft, .footRight, form, input,#name, #type, #error{
+        display: none;
+    }
+    #imgPoke, #error, .inLeftEye, .inRightEye{
         visibility: hidden;
     }
-.pokedex{
-    margin-left: -291px;
-    margin-top: 30px;
-}
-.inLeftEye, .inRightEye{
-    background: white;
-    z-index: 1;
-}
+    .pokedex{
+        margin-left: -291px;
+        margin-top: 30px;
+    }
     .sleep{
         display: block;
         position: fixed;
