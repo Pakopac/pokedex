@@ -1,13 +1,57 @@
+@font-face {
+    font-family: "Pokemon";
+    src: url("font/Pokemon-Solid.ttf")
+}
+body{
+    background: #236475;
+}
 #error{
     color: #7c0b00;
     margin-left: 52px;
     margin-right: 36px;
-    margin-top: 41px;
+    margin-top: 86px;
     font-size: 23px;
     font-weight: bold;
 }
 .sleep{
     display: none;
+}
+#form{
+    margin-left: 384px;
+    position: fixed;
+    z-index: 5;
+    margin-top: 50px;
+}
+.inputSearch{
+    background: black;
+    text-align: center;
+    height: 34px;
+    font-weight: bold;
+    position: fixed;
+    width: 123px;
+    margin-top: 74px;
+    margin-left: 74px;
+    color: white;
+    border-radius: 50px;
+    border: 0;
+    z-index: 4;
+}
+.btn{
+    font-family: "Pokemon";
+    margin-top: 82px;
+    border-radius: 30px;
+    margin-left: 35px;
+    width: 191px;
+    color: black;
+    font-size: 23px;
+    background: #aa2322;
+    border: 0;
+    position: fixed;
+}
+.btn:hover{
+    cursor: pointer;
+    color: yellow;
+    text-shadow: -2px 0 blue, 0 2px blue, 2px 0 blue, 0 -2px blue;
 }
 .pokedex{
     margin-left: -50px;
@@ -93,7 +137,7 @@
     z-index: 4;
     width: 285px;
     height: 230px;
-    background: rgb(48, 201, 255);
+    background: #30C9FF;
     margin-left: 424px;
     margin-top: 302px;
     border-radius: 30px;
