@@ -55,6 +55,20 @@ window.onload = function(){
                         type();
                     }
 
+                    else if (typeof isPokeExist() !== 'undefined' && search == 83||
+                        typeof isPokeExist() !== 'undefined' && search === 'farfetch\'d') {
+                        linksImg('farfetchd');
+                        name(isPokeExist().name);
+                        type();
+                    }
+
+                    else if (typeof isPokeExist() !== 'undefined' && search == 122||
+                        typeof isPokeExist() !== 'undefined' && search === 'mr. mime') {
+                        linksImg('mr-mime');
+                        name(isPokeExist().name);
+                        type();
+                    }
+
                     else if (typeof isPokeExist() !== 'undefined') {
                         linksImg(isPokeExist().name.toLowerCase());
                         name(isPokeExist().name);
