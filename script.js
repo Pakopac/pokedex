@@ -77,7 +77,7 @@ window.onload = function(){
 
                     else {
                         if (search === 'nidoran'){
-                            blockError = 'Please search nidran-m or nidoran-f'
+                            blockError = 'Please search nidoran-m or nidoran-f'
                         }
 
                         if (isNaN(search) && search !== 'nidoran') {
